@@ -13,11 +13,15 @@
 #  ** astendamine // täisarvuline jagamine % jääk
 
 maht = 5
-kingitused  = int(input("Lisa kingituste arv:"))
-täis = kingitused // maht
-yle = 0
 
-print(f"Saad teha {täis} täis kinkekasti. Üle jääb {yle} kingitust.")
+try:
+    kingitused  = int(input("Lisa kingituste arv:"))
+    täis = kingitused // maht
+    yle = kingitused % maht
+
+    print(f"Saad teha {täis} täis kinkekasti. Üle jääb {yle} kingitust.")
+except:
+    print("Miski läks valesti!")
 
 
 

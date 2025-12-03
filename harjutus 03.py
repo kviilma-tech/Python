@@ -41,7 +41,7 @@ print("Minu lemmikraamat on "+raamat+", mis on"+str(lehekylgede_arv)+"pikk ja mi
 # Iga kolmnurk on järgmisest 1,5 korda eemal
 # Testi: muuda külje pikkust ning kolmnurgad on kenasti teineteisest eemal
 
-kylje_pikkus = 50
+kylje_pikkus = 100
 nurk = 120
 kujundi_varv = "blue"
 kordaja = 3
