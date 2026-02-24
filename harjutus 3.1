@@ -1,0 +1,10 @@
+#harjutus 3.1
+fail = open("rebased.txt", encoding="UTF-8")
+vastuvõetud = []
+
+for rida in fail:
+    vastuvõetud.append(int(rida))
+    
+fail.close()
+aasta = int(input("sisesta aasta 2011-2019: "))
+print(vastuvõetud[aasta-2011])
