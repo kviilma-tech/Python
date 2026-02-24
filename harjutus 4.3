@@ -1,0 +1,15 @@
+# harjutus 4.3
+def eelarve(kutsutud_inimesed):
+    maksimaalne_eelarve = kutsutud_inimesed * 10  * kutsutud_inimesed
+    minimaalne_eelarve = kutsutud_inimesed * 10 * kutsutud_inimesed - 50 * kutsutud_inimesed
+    return maksimaalne_eelarve, minimaalne_eelarve
+
+def peo_eelarve():
+    kutsutud_inimesed = int(input("Mitu inimest on kutsutud? "))
+    tulevad_inimesed = int(input("Mitu inimest tuleb? "))
+    
+    maksimaalne_eelarve, minimaalne_eelarve = eelarve(kutsutud_inimesed)
+    print(f"Maksimaalne eelarve: {maksimaalne_eelarve} eurot")
+    print(f"Minimaalne eelarve: {minimaalne_eelarve} eurot")
+
+peo_eelarve()

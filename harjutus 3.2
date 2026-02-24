@@ -1,7 +1,10 @@
-#harjutus 3.2
+# harjutus 3.2
+
 porgandid = 0
-ringid = 6
+ringid = int(input("Sisestage ringide arv: "))
+
 for i in range(ringid):
-    if (i + 1)% 2 == 0:
+    if (i + 1) % 2 == 0:
         porgandid = porgandid + i + 1
+
 print(f"Saadavate porgandite koguarv on {porgandid}.")

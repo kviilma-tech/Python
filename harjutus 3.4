@@ -1,9 +1,20 @@
-#harjutus 3.4
-valik = "jukebox.txt"
+# harjutus 3.4
+
+failinimi = input("Palun sisestage failinimi: ")
+
+fail = open(failinimi, encoding="UTF-8")
+
+laulud = []
 nr = 1
-fail = open(valik, encoding="UTF-8")
 
 for rida in fail:
-    print(nr,rida, end = "")
+    laul = rida.strip()
+    laulud.append(laul)
+    print(nr, laul)
     nr += 1
-otsus = int(input("Millist laulu tahad?"))
+
+fail.close()
+
+valik = int(input("Valige laulu järjekorranumber:"))
+
+print("Mängitav muusikapala on", laulud[valik - 1])
