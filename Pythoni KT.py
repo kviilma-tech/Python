@@ -5,32 +5,27 @@ r = requests.get(URL)
 data = r.json()
 posts = data["posts"]
 
-def get_reactions(post):
-    return post["reactions"]["likes"] + post["reactions"]["dislikes"]
+max_post = posts[0]
+views_sum = 0
+reactions_sum = 0
 
 for post in posts:
     print(post["title"])
 
-max_post = posts[0]
+    likes = post["reactions"]["likes"]
+    dislikes = post["reactions"]["dislikes"]
+    kokku = likes + dislikes
 
-for post in posts:
-    if get_reactions(post) > get_reactions(max_post):
+    max_likes = max_post["reactions"]["likes"] + max_post["reactions"]["dislikes"]
+
+    if kokku > max_likes:
         max_post = post
 
-print("Kõige rohkem reaktsioone:", max_post["title"])
-
-views_sum = 0
-
-for post in posts:
     views_sum += post["views"]
-
-print("Vaatamisi kokku:", views_sum)
-
-reactions_sum = 0
-
-for post in posts:
-    reactions_sum += get_reactions(post)
+    reactions_sum += kokku
 
 average = reactions_sum / len(posts)
 
+print("Kõige rohkem reaktsioone:", max_post["title"])
+print("Vaatamisi kokku:", views_sum)
 print("Keskmine reaktsioonide arv:", average)
