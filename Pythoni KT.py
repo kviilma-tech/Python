@@ -1,7 +1,12 @@
-import json
+import requests
 
-with open("posts.json", "r", encoding="utf-8") as f:
-    posts = json.load(f)
+URL = "https://dummyjson.com/posts"
+r = requests.get(URL)
+data = r.json()
+posts = data["posts"]
+
+def get_reactions(post):
+    return post["reactions"]["likes"] + post["reactions"]["dislikes"]
 
 for post in posts:
     print(post["title"])
@@ -9,10 +14,7 @@ for post in posts:
 max_post = posts[0]
 
 for post in posts:
-    reactions = post["reactions"]["likes"] + post["reactions"]["dislikes"]
-    max_reactions = max_post["reactions"]["likes"] + max_post["reactions"]["dislikes"]
-    
-    if reactions > max_reactions:
+    if get_reactions(post) > get_reactions(max_post):
         max_post = post
 
 print("Kõige rohkem reaktsioone:", max_post["title"])
@@ -27,7 +29,7 @@ print("Vaatamisi kokku:", views_sum)
 reactions_sum = 0
 
 for post in posts:
-    reactions_sum += post["reactions"]["likes"] + post["reactions"]["dislikes"]
+    reactions_sum += get_reactions(post)
 
 average = reactions_sum / len(posts)
 
