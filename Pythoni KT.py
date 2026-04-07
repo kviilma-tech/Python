@@ -1,10 +1,12 @@
 import json
 
 with open("posts.json", "r", encoding="utf-8") as f:
-    posts = json.load(f)
+    data = json.load(f)
+    posts = data["posts"]
 
 for post in posts:
-    print(post["title"])
+    title = post['title']
+    print(f"Pealkiri: {title}")
 
 max_post = posts[0]
 
@@ -29,6 +31,6 @@ reactions_sum = 0
 for post in posts:
     reactions_sum += post["reactions"]["likes"] + post["reactions"]["dislikes"]
 
-average = reactions_sum / len(posts)
+average = reactions_sum / len(post)
 
 print("Keskmine reaktsioonide arv:", average)
